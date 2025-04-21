@@ -4,8 +4,6 @@
 
 AMyPlayer::AMyPlayer()
 {
-	PrimaryActorTick.bCanEverTick = true;
-
 	AttackCheckSphereArea = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	AttackCheckSphereArea->SetupAttachment(RootComponent);
 }
@@ -13,6 +11,8 @@ AMyPlayer::AMyPlayer()
 void AMyPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// UE_LOG(LogTemp, Warning, TEXT("-================"));
 }
 
 void AMyPlayer::Tick(float DeltaTime)

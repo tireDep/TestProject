@@ -14,6 +14,7 @@ class TESTPROJECT_API AMyPlayer : public ACharacterBase
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditAnywhere)
 	USphereComponent* AttackCheckSphereArea;
 
 public:

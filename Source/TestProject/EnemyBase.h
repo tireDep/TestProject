@@ -11,4 +11,12 @@ class TESTPROJECT_API AEnemyBase : public ACharacterBase
 {
 	GENERATED_BODY()
 	
+public:
+	AEnemyBase();
+
+protected:
+	virtual void BeginPlay() override;
+
+public:
+	virtual void Tick(float DeltaTime) override;
 };

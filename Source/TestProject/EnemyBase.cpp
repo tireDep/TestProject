@@ -3,3 +3,17 @@
 
 #include "EnemyBase.h"
 
+AEnemyBase::AEnemyBase()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
+void AEnemyBase::BeginPlay()
+{
+
+}
+
+void AEnemyBase::Tick(float DeltaTime)
+{
+
+}

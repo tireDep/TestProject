@@ -19,5 +19,7 @@ public class TestProject : ModuleRules
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
 		// To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+
+		PublicDependencyModuleNames.AddRange(new string[] {"Core", "PaperZD" });	// 필수 모듈 추가
 	}
 }
