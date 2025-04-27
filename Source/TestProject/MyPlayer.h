@@ -4,18 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
-
-#include "Components/SphereComponent.h"
-
 #include "MyPlayer.generated.h"
 
 UCLASS()
 class TESTPROJECT_API AMyPlayer : public ACharacterBase
 {
 	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	USphereComponent* AttackCheckSphereArea;
 
 public:
 	AMyPlayer();

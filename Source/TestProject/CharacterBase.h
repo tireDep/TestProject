@@ -4,12 +4,21 @@
 
 #include "CoreMinimal.h"
 #include "PaperZDCharacter.h"
+
+#include "Components/SphereComponent.h"
+
 #include "CharacterBase.generated.h"
 
 UCLASS()
 class TESTPROJECT_API ACharacterBase : public APaperZDCharacter
 {
 	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, Category = "Attack")
+	USphereComponent* AttackCheckSphereArea;
+
+	TSet<AActor> overlapActor;
+	TMap<int, AActor> overlapActorMap;
 
 	UPROPERTY(VisibleAnywhere, Category = "Status")
 	float MaxHealth = 100.0f;
@@ -21,7 +30,13 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
-public:
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+	void OnAttackRangeBeginOverlap(UPrimitiveComponent* OverlappedComp,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
 };

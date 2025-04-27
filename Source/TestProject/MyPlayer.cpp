@@ -4,8 +4,6 @@
 
 AMyPlayer::AMyPlayer()
 {
-	AttackCheckSphereArea = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-	AttackCheckSphereArea->SetupAttachment(RootComponent);
 }
 
 void AMyPlayer::BeginPlay()
