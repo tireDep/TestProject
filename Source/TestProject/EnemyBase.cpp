@@ -19,17 +19,18 @@ void AEnemyBase::Tick(float DeltaTime)
 
 void AEnemyBase::InitEnemyData(FName enemyID)
 {
-	if (enemyDataTable == nullptr)
+	URespawnInstanceSubsystem* respawnSystem = GetGameInstance()->GetSubsystem<URespawnInstanceSubsystem>();
+	if (respawnSystem == nullptr)
 	{
 		return;
 	}
 
-	FEnemyStruct* data = enemyDataTable->FindRow<FEnemyStruct>(enemyID, TEXT("DT_Enemy"));
-	if (data == nullptr)
+	const FEnemyData* enemyData = respawnSystem->GetEnemyData("Basic");
+	if (enemyData == nullptr)
 	{
 		return;
 	}
 
-	MaxHealth = data->maxHp;
+	MaxHealth = enemyData->maxHp;
 	UE_LOG(LogTemp, Warning, TEXT("maxHealth : %f"), MaxHealth);
 }

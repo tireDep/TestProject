@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
 #include "EnemyData.h"
+#include "RespawnInstanceSubsystem.h"
 #include "EnemyBase.generated.h"
 
 UCLASS()
@@ -22,6 +23,4 @@ public:
 	void InitEnemyData(FName enemyID);
 
 private:
-	UPROPERTY(EditDefaultsOnly, Category = "EnemySetting")
-	UDataTable* enemyDataTable;
 };
