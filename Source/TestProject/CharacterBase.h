@@ -14,17 +14,6 @@ class TESTPROJECT_API ACharacterBase : public APaperZDCharacter
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere, Category = "Attack")
-	USphereComponent* AttackCheckSphereArea;
-
-	TSet<AActor> overlapActor;
-	TMap<int, AActor> overlapActorMap;
-
-	UPROPERTY(VisibleAnywhere, Category = "Status")
-	float MaxHealth = 100.0f;
-
-	float currentHealth;
-
 public:
 	ACharacterBase();
 
@@ -39,4 +28,16 @@ protected:
 		int32 OtherBodyIndex,
 		bool bFromSweep,
 		const FHitResult& SweepResult);
+
+protected:
+	UPROPERTY(VisibleAnywhere, Category = "Attack")
+	USphereComponent* AttackCheckSphereArea;
+
+	TSet<AActor> overlapActor;
+	TMap<int, AActor> overlapActorMap;
+
+	UPROPERTY(VisibleAnywhere, Category = "Status")
+	float MaxHealth;
+
+	float currentHealth;
 };

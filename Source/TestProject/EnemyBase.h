@@ -1,9 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
+#include "EnemyData.h"
 #include "EnemyBase.generated.h"
 
 UCLASS()
@@ -19,4 +18,10 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
+
+	void InitEnemyData(FName enemyID);
+
+private:
+	UPROPERTY(EditDefaultsOnly, Category = "EnemySetting")
+	UDataTable* enemyDataTable;
 };

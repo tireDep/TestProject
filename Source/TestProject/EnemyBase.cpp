@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "EnemyBase.h"
 
 AEnemyBase::AEnemyBase()
@@ -10,10 +7,29 @@ AEnemyBase::AEnemyBase()
 
 void AEnemyBase::BeginPlay()
 {
+	Super::BeginPlay();
 
+	InitEnemyData("Basic");
 }
 
 void AEnemyBase::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
+}
 
+void AEnemyBase::InitEnemyData(FName enemyID)
+{
+	if (enemyDataTable == nullptr)
+	{
+		return;
+	}
+
+	FEnemyStruct* data = enemyDataTable->FindRow<FEnemyStruct>(enemyID, TEXT("DT_Enemy"));
+	if (data == nullptr)
+	{
+		return;
+	}
+
+	MaxHealth = data->maxHp;
+	UE_LOG(LogTemp, Warning, TEXT("maxHealth : %f"), MaxHealth);
 }
