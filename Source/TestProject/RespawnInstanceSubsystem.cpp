@@ -30,3 +30,29 @@ const FEnemyData* URespawnInstanceSubsystem::GetEnemyData(FName enemyName)
 {
 	return enemyDataCache.Find(enemyName);
 }
+
+void URespawnInstanceSubsystem::InitializedEnemyObjectPool(int poolSize, TSubclassOf<AEnemyBase> enemyClass)
+{
+	cachedEnemyClass = enemyClass;
+
+	for (int index = 0; index < poolSize; index++)
+	{
+		AEnemyBase* newEnemy = GetWorld()->SpawnActor<AEnemyBase>(cachedEnemyClass, FVector::ZeroVector, FRotator::ZeroRotator);
+		if (newEnemy == nullptr)
+		{
+			continue;
+		}
+
+		newEnemy->SetActorHiddenInGame(true);
+		newEnemy->SetActorEnableCollision(false);
+
+		// if (enemyObjectPool.Contains(newEnemy->GetEnemyLevel()) == false)
+		// {
+		// 	enemyObjectPool.Add(newEnemy->GetEnemyLevel(), TArray<AEnemyBase*>());
+		// }
+		// 
+		// enemyObjectPool[newEnemy->GetEnemyLevel()].Add(newEnemy);
+
+		// enemyObjectPool.Add(newEnemy);
+	}
+}

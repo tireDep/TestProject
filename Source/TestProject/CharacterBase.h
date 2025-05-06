@@ -40,4 +40,6 @@ protected:
 	float MaxHealth;
 
 	float currentHealth;
+
+	bool isAlive;
 };

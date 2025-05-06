@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "CharacterBase.h"
 #include "EnemyData.h"
-#include "RespawnInstanceSubsystem.h"
+// #include "RespawnInstanceSubsystem.h"
 #include "EnemyBase.generated.h"
 
 UCLASS()
@@ -20,7 +20,18 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	void InitEnemyData(FName enemyID);
+	void InitializeData(FName enemyID);
+	void ResetData() { GetWorldTimerManager().ClearAllTimersForObject(this); }	// 상태 초기화
+
+	const int GetEnemyLevel() { return level; }
+
+	// void SetActive(bool setValue) { isActive = setValue; }
+	// bool GetActive() { return isActive; };
 
 private:
+	FName enemyName;
+	int level;
+	float maxHp;
+	float moveSpeed;
+	FName AttackAnimName;
 };

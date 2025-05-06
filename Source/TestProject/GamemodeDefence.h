@@ -25,6 +25,9 @@ public:
 	// virtual void Tick(float DeltaTime) override;
 
 public:
-	UPROPERTY(EditDefaultsOnly, Category = "DataTable")
+	UPROPERTY(EditDefaultsOnly, Category = "RespawnSubsystemData")
 	UDataTable* enemyDataTable;
+
+	UPROPERTY(EditDefaultsOnly, Category = "RespawnSubsystemData")
+	int objectPoolSize = 100;
 };

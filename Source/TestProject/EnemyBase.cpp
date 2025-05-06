@@ -1,15 +1,18 @@
+#include "RespawnInstanceSubsystem.h"
 #include "EnemyBase.h"
 
 AEnemyBase::AEnemyBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	
+	// isActive = false;
 }
 
 void AEnemyBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	InitEnemyData("Basic");
+	InitializeData("Basic");
 }
 
 void AEnemyBase::Tick(float DeltaTime)
@@ -17,7 +20,7 @@ void AEnemyBase::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AEnemyBase::InitEnemyData(FName enemyID)
+void AEnemyBase::InitializeData(FName enemyID)
 {
 	URespawnInstanceSubsystem* respawnSystem = GetGameInstance()->GetSubsystem<URespawnInstanceSubsystem>();
 	if (respawnSystem == nullptr)
@@ -25,12 +28,15 @@ void AEnemyBase::InitEnemyData(FName enemyID)
 		return;
 	}
 
-	const FEnemyData* enemyData = respawnSystem->GetEnemyData("Basic");
-	if (enemyData == nullptr)
+	const FEnemyData* getEnemyData = respawnSystem->GetEnemyData("Basic");
+	if (getEnemyData == nullptr)
 	{
 		return;
 	}
 
-	MaxHealth = enemyData->maxHp;
+	MaxHealth = getEnemyData->maxHp;
 	UE_LOG(LogTemp, Warning, TEXT("maxHealth : %f"), MaxHealth);
+
+	currentHealth = MaxHealth;
+	isAlive = true;
 }

@@ -10,6 +10,7 @@ ACharacterBase::ACharacterBase()
     AttackCheckSphereArea->SetupAttachment(RootComponent);
 
 	currentHealth = MaxHealth;
+    isAlive = true;
 }
 
 void ACharacterBase::BeginPlay()
