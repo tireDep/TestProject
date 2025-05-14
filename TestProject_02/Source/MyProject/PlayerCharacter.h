@@ -17,6 +17,7 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-	
-private:
+
+	// UFUNCTION(BlueprintCallable, Category = "Attack");
+	void ApplyStrongPush(FVector direction, float impulseStrength);
 };

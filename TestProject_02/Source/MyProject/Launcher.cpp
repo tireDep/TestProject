@@ -1,5 +1,6 @@
-#include "Kismet/GameplayStatics.h"
 #include "Launcher.h"
+#include "Kismet/GameplayStatics.h"
+#include "PlayerCharacter.h"
 
 ALauncher::ALauncher()
 {

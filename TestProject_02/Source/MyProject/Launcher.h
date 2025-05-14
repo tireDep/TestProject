@@ -2,9 +2,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
-#include "PlayerCharacter.h"
-
 #include "Launcher.generated.h"
 
 UCLASS()
@@ -24,7 +21,7 @@ public:
 	void LaunchPlayer();
 
 public:
-	APlayerCharacter* PlayerCharacter;
+	class APlayerCharacter* PlayerCharacter;
 
 	UPROPERTY(EditAnywhere, Category = "Launcher")
 	float MinPower = 0.0f;
